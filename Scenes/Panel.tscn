@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/journal_card.tscn" id="1_xuthh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oju65"]
+bg_color = Color(0.72, 0.52656, 0.3456, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Panel" type="Panel"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_oju65")
+
+[node name="JournalCard" parent="." instance=ExtResource("1_xuthh")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="_Control_18" parent="." instance=ExtResource("1_xuthh")]
+offset_left = 20.0
+offset_top = 140.0
+offset_right = 20.0
+offset_bottom = 140.0
+
+[node name="_Control_27" parent="." instance=ExtResource("1_xuthh")]
+offset_left = 20.0
+offset_top = 260.0
+offset_right = 20.0
+offset_bottom = 260.0
+
+[node name="_Control_36" parent="." instance=ExtResource("1_xuthh")]
+offset_left = 20.0
+offset_top = 380.0
+offset_right = 20.0
+offset_bottom = 380.0
+
+[node name="_Control_45" parent="." instance=ExtResource("1_xuthh")]
+visible = false
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="_Control_54" parent="." instance=ExtResource("1_xuthh")]
+visible = false
+offset_left = 20.0
+offset_top = 140.0
+offset_right = 20.0
+offset_bottom = 140.0

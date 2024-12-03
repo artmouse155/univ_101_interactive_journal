@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Theme" path="res://Resources/main_theme.tres" id="1_yokl3"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="2_4fv7h"]
+[ext_resource type="PackedScene" path="res://Scenes/journal_card.tscn" id="3_d75hp"]
+[ext_resource type="PackedScene" path="res://Scenes/radio_button.tscn" id="4_vceer"]
+[ext_resource type="Texture2D" path="res://Assets/Textures/desk.jpg" id="5_481ie"]
+[ext_resource type="Shader" path="res://Scenes/frosted_glass.gdshader" id="6_ikssc"]
+[ext_resource type="Script" path="res://Scripts/blur.gd" id="7_b6pji"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/IbarraRealNova-Bold.ttf" id="8_el82m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oju65"]
+bg_color = Color(0.72, 0.52656, 0.3456, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcuc0"]
+bg_color = Color(0, 0, 0, 0.356863)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jye6k"]
+shader = ExtResource("6_ikssc")
+shader_parameter/lod = 0.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ajgsu"]
+
+[node name="Main" type="Control" node_paths=PackedStringArray("ButtonContainer", "BookContainer", "Blur")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yokl3")
+script = ExtResource("2_4fv7h")
+card_scene = ExtResource("3_d75hp")
+radio_button_scene = ExtResource("4_vceer")
+ButtonContainer = NodePath("Book/MarginContainer/Buttons/MarginContainer/HBoxContainer")
+BookContainer = NodePath("Book/Panel")
+Blur = NodePath("Blur")
+setup_complete = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_481ie")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Book" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(440, 580)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Book"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oju65")
+
+[node name="MarginContainer" type="MarginContainer" parent="Book"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 20
+
+[node name="Buttons" type="PanelContainer" parent="Book/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_mcuc0")
+
+[node name="MarginContainer" type="MarginContainer" parent="Book/MarginContainer/Buttons"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Book/MarginContainer/Buttons/MarginContainer"]
+modulate = Color(1, 1, 1, 0.760784)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Blur" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_jye6k")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("PlaceholderTexture2D_ajgsu")
+script = ExtResource("7_b6pji")
+
+[node name="quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 437.0
+offset_top = 256.0
+offset_right = 549.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_el82m")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[connection signal="pressed" from="quit" to="." method="quit_game"]

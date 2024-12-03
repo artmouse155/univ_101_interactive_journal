@@ -1,0 +1,301 @@
+[gd_scene load_steps=13 format=3 uid="uid://cgtega16abrnc"]
+
+[ext_resource type="Script" path="res://Scripts/journal_card.gd" id="1_agiy0"]
+[ext_resource type="Theme" uid="uid://b7d2qhh1gaf71" path="res://Resources/main_theme.tres" id="1_vci0w"]
+[ext_resource type="Texture2D" uid="uid://dsnipshn8lc1e" path="res://Assets/Textures/Speakers/kimball.png" id="2_jrs05"]
+[ext_resource type="FontFile" uid="uid://dmjjesm68sjwm" path="res://Assets/Fonts/IbarraRealNova-BoldItalic.ttf" id="4_b5exu"]
+[ext_resource type="FontFile" uid="uid://ohhsjmpc3nx8" path="res://Assets/Fonts/IbarraRealNova-Bold.ttf" id="5_kmkub"]
+[ext_resource type="Script" path="res://Scenes/auto_resize.gd" id="5_qjbi6"]
+[ext_resource type="Texture2D" uid="uid://wox2pvj7kwdl" path="res://Assets/Textures/new_screen_small.png" id="7_a123b"]
+[ext_resource type="Script" path="res://Scripts/read_talk_button.gd" id="8_5mh05"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld38a"]
+bg_color = Color(0.882353, 0.803922, 0.658824, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_r7puc"]
+font = ExtResource("4_b5exu")
+font_size = 24
+font_color = Color(0.054902, 0.054902, 0.160784, 0.952941)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwxga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujl7y"]
+bg_color = Color(1, 1, 1, 0.313726)
+
+[node name="JournalCard" type="Control" node_paths=PackedStringArray("CardContent", "TitleLabel", "SpeakerAndDateLabel", "SpeakerImage", "QuoteLabel", "ThoughtsLabel", "QuestionsLabel", "ReadTalkButton", "TileContent", "TileSpeakerImage", "TileTitleLabel", "TileSpeakerAndDateLabel", "TileButton", "MainPanel")]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_vci0w")
+script = ExtResource("1_agiy0")
+CardContent = NodePath("MainPanel/CardContent")
+TitleLabel = NodePath("MainPanel/CardContent/MarginContainer2/VBoxContainer/MarginContainer/TitleContainer/TitleLabel")
+SpeakerAndDateLabel = NodePath("MainPanel/CardContent/MarginContainer2/VBoxContainer/MarginContainer/TitleContainer/SpeakerAndDateLabel")
+SpeakerImage = NodePath("MainPanel/CardContent/MarginContainer2/VBoxContainer/ImageAndQuoteContainer/MarginContainer/SpeakerImage")
+QuoteLabel = NodePath("MainPanel/CardContent/MarginContainer2/VBoxContainer/ImageAndQuoteContainer/QuoteContainer/QuoteLabel")
+ThoughtsLabel = NodePath("MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/ThoughtsContainer/MarginContainer/ThoughtsLabel")
+QuestionsLabel = NodePath("MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/QuestionsAndButtonContainer/QuestionsContainer/MarginContainer/QuestionsLabel")
+ReadTalkButton = NodePath("MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/QuestionsAndButtonContainer/MarginContainer/ReadTalkButton")
+TileContent = NodePath("MainPanel/TileContent")
+TileSpeakerImage = NodePath("MainPanel/TileContent/HBoxContainer/TextureRect")
+TileTitleLabel = NodePath("MainPanel/TileContent/HBoxContainer/MarginContainer/TitleContainer/TitleLabel")
+TileSpeakerAndDateLabel = NodePath("MainPanel/TileContent/HBoxContainer/MarginContainer/TitleContainer/SpeakerAndDateLabel")
+TileButton = NodePath("MainPanel/TileContent/TileToCard")
+MainPanel = NodePath("MainPanel")
+
+[node name="MainPanel" type="Panel" parent="."]
+clip_children = 2
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+offset_right = 400.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ld38a")
+
+[node name="CardContent" type="MarginContainer" parent="MainPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainPanel/CardContent"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/CardContent/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="TitleContainer" type="VBoxContainer" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/MarginContainer/TitleContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=24][b]This is the Title[/b][/font_size]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="SpeakerAndDateLabel" type="RichTextLabel" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/MarginContainer/TitleContainer"]
+layout_mode = 2
+text = "Henry B. Eyering | October 12, 2024"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="ImageAndQuoteContainer" type="HBoxContainer" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ImageAndQuoteContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SpeakerImage" type="TextureRect" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ImageAndQuoteContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 180)
+layout_mode = 2
+texture = ExtResource("2_jrs05")
+expand_mode = 4
+stretch_mode = 6
+
+[node name="QuoteContainer" type="Control" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ImageAndQuoteContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuoteLabel" type="Label" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ImageAndQuoteContainer/QuoteContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "\"This is my super cool, awesome quote. This is my super cool, awesome quote. This is my super cool, awesome quote. This is my super cool, awesome quote. This is my super cool, awesome quote. This is my super cool, awesome quote.This is my super cool, awesome quote.\""
+label_settings = SubResource("LabelSettings_r7puc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 1
+script = ExtResource("5_qjbi6")
+
+[node name="HSeparator" type="HSeparator" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ThoughtsQuestionsAndButtonContainer" type="HBoxContainer" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ThoughtsContainer" type="VBoxContainer" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ThoughtsTitleLabel" type="RichTextLabel" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/ThoughtsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[b]My Thoughts[/b]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/ThoughtsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ThoughtsLabel" type="RichTextLabel" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/ThoughtsContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in vulputate velit. Quisque tempor ante ante, ultrices porttitor justo semper quis. Quisque convallis convallis massa, non lobortis risus luctus vitae. Maecenas sodales dolor quis ex maximus, ut auctor leo lacinia. Morbi ornare mollis lacus, sed pharetra lacus blandit nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus in pharetra leo, lacinia aliquet orci. Proin sit amet sem vitae orci hendrerit rhoncus sit amet at nisl. Integer vitae quam eu mi bibendum accumsan in eget sapien. Nulla egestas enim vitae magna fringilla, ac ultrices ligula euismod. Nulla facilisi. Vivamus cursus erat et felis tristique, fringilla varius eros blandit. Integer iaculis ultrices massa eu dictum. In faucibus augue id ligula convallis pellentesque. Maecenas id ornare ex."
+
+[node name="VSeparator" type="VSeparator" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="QuestionsAndButtonContainer" type="VBoxContainer" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuestionsContainer" type="VBoxContainer" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/QuestionsAndButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuestionsTitleLabel" type="RichTextLabel" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/QuestionsAndButtonContainer/QuestionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[b]Questions[/b]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/QuestionsAndButtonContainer/QuestionsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="QuestionsLabel" type="RichTextLabel" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/QuestionsAndButtonContainer/QuestionsContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in vulputate velit. Quisque tempor ante ante, ultrices porttitor justo semper quis. Quisque convallis convallis massa, non lobortis risus luctus vitae. Maecenas sodales dolor quis ex maximus, ut auctor leo lacinia. Morbi ornare mollis lacus, sed pharetra lacus blandit nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus in pharetra leo, lacinia aliquet orci. Proin sit amet sem vitae orci hendrerit rhoncus sit amet at nisl. Integer vitae quam eu mi bibendum accumsan in eget sapien. Nulla egestas enim vitae magna fringilla, ac ultrices ligula euismod. Nulla facilisi. Vivamus cursus erat et felis tristique, fringilla varius eros blandit. Integer iaculis ultrices massa eu dictum. In faucibus augue id ligula convallis pellentesque. Maecenas id ornare ex."
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/QuestionsAndButtonContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ReadTalkButton" type="Button" parent="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/QuestionsAndButtonContainer/MarginContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("5_kmkub")
+theme_override_font_sizes/font_size = 24
+text = "Read The Talk"
+icon = ExtResource("7_a123b")
+icon_alignment = 2
+script = ExtResource("8_5mh05")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/CardContent"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="QuitButton" type="Button" parent="MainPanel/CardContent/MarginContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("5_kmkub")
+theme_override_font_sizes/font_size = 24
+text = "X"
+
+[node name="TileContent" type="MarginContainer" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainPanel/TileContent"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainPanel/TileContent/HBoxContainer"]
+custom_minimum_size = Vector2(80, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_jrs05")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/TileContent/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="TitleContainer" type="VBoxContainer" parent="MainPanel/TileContent/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainPanel/TileContent/HBoxContainer/MarginContainer/TitleContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=24][b]This is the Title[/b][/font_size]"
+fit_content = true
+scroll_active = false
+
+[node name="SpeakerAndDateLabel" type="RichTextLabel" parent="MainPanel/TileContent/HBoxContainer/MarginContainer/TitleContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Henry B. Eyering | October 12, 2024"
+fit_content = true
+scroll_active = false
+
+[node name="TileToCard" type="Button" parent="MainPanel/TileContent"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iwxga")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iwxga")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_iwxga")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ujl7y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iwxga")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_iwxga")
+
+[connection signal="pressed" from="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/QuestionsAndButtonContainer/MarginContainer/ReadTalkButton" to="MainPanel/CardContent/MarginContainer2/VBoxContainer/ThoughtsQuestionsAndButtonContainer/QuestionsAndButtonContainer/MarginContainer/ReadTalkButton" method="_on_pressed"]
+[connection signal="pressed" from="MainPanel/CardContent/MarginContainer/QuitButton" to="." method="card_to_tile"]
+[connection signal="pressed" from="MainPanel/TileContent/TileToCard" to="." method="tile_to_card"]

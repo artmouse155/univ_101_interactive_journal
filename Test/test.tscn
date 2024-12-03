@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpacxx7dnkd1e"]
+
+[ext_resource type="Script" path="res://Test/resizeable_label.gd" id="1_ti6t3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mjjiq"]
+font_size = 24
+
+[node name="Test" type="Label"]
+offset_right = 55.0
+offset_bottom = 160.0
+text = "This is the Text That I have."
+label_settings = SubResource("LabelSettings_mjjiq")
+autowrap_mode = 3
+text_overrun_behavior = 1
+script = ExtResource("1_ti6t3")
+min_size = 24
+
+[connection signal="resized" from="." to="." method="adjust"]
