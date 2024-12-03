@@ -32,7 +32,7 @@ var anim_tween
 
 var page_number = 0
 
-signal to_card
+signal to_card(obj)
 signal to_tile
 
 func setup(entry: Entry, _original_position: Vector2, _page_number):
@@ -57,7 +57,7 @@ func page_changed(num):
 	#print("Visible: ", visible, " because ", num, " and ", page_number)
 
 func tile_to_card():
-	to_card.emit()
+	to_card.emit(self)
 	z_index = 1
 	mode = "card"
 	TileContent.hide()

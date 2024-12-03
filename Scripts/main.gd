@@ -62,7 +62,7 @@ func setup():
 		disable_tiles.connect(card.disable_tile)
 		card.to_card.connect(send_tile_signal.bind(true))
 		card.to_card.connect(show_blur)
-		card.to_tile.connect(send_tile_signal.bind(false))
+		card.to_tile.connect(send_tile_signal.bind(null, false))
 		card.to_tile.connect(hide_blur)
 		BookContainer.add_child(card)
 		card.set_owner(self)
@@ -89,10 +89,12 @@ func change_page(page_num: int):
 	current_page_number = page_num
 	page_changed.emit(page_num)
 
-func send_tile_signal(do_disable: bool):
+func send_tile_signal(node: Node, do_disable: bool):
+	if node:
+		BookContainer.move_child(node, BookContainer.get_child_count() - 1)
 	disable_tiles.emit(do_disable)
 
-func show_blur():
+func show_blur(_card):
 	if blur_tween:
 		blur_tween.kill()
 	blur_tween = create_tween()
