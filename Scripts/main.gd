@@ -70,11 +70,11 @@ func setup():
 		if page_number != current_page_number:
 			card.hide()
 	max_page_number = page_number
-	var button_group = ButtonGroup.new()
+	#var button_group = ButtonGroup.new()
 	for i in range(max_page_number + 1):
 		var button = radio_button_scene.instantiate()
 		button.button_pressed = (i == current_page_number)
-		button.button_group = button_group
+		#button.button_group = button_group
 		ButtonContainer.add_child(button)
 		button.set_owner(self)
 		button.pressed.connect(change_page.bind(i))

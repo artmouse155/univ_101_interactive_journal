@@ -23,6 +23,7 @@ project/assembly_name="Chase-s Univ 101 Interactive Journal"
 
 folder_colors={
 "res://Assets/": "red",
+"res://Export/": "purple",
 "res://Resources/": "yellow",
 "res://Scenes/": "blue",
 "res://Scripts/": "green"

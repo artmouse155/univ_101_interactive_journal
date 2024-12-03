@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cgtega16abrnc" path="res://Scenes/journal_card.tscn" id="2_q6jam"]
 [ext_resource type="Texture2D" uid="uid://1barsv1f8pbi" path="res://Assets/Textures/desk.jpg" id="3_uo7o0"]
 [ext_resource type="PackedScene" uid="uid://chrifsr3kufyx" path="res://Scenes/radio_button.tscn" id="4_3bduc"]
-[ext_resource type="Shader" path="res://Scenes/frosted_glass.gdshader" id="4_x35e7"]
+[ext_resource type="Shader" path="res://Assets/frosted_glass.gdshader" id="4_x35e7"]
 [ext_resource type="Script" path="res://Scripts/blur.gd" id="7_tmqc0"]
 [ext_resource type="FontFile" uid="uid://ohhsjmpc3nx8" path="res://Assets/Fonts/IbarraRealNova-Bold.ttf" id="8_tmf8x"]
 

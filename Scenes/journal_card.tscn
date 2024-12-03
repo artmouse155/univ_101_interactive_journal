@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dsnipshn8lc1e" path="res://Assets/Textures/Speakers/kimball.png" id="2_jrs05"]
 [ext_resource type="FontFile" uid="uid://dmjjesm68sjwm" path="res://Assets/Fonts/IbarraRealNova-BoldItalic.ttf" id="4_b5exu"]
 [ext_resource type="FontFile" uid="uid://ohhsjmpc3nx8" path="res://Assets/Fonts/IbarraRealNova-Bold.ttf" id="5_kmkub"]
-[ext_resource type="Script" path="res://Scenes/auto_resize.gd" id="5_qjbi6"]
+[ext_resource type="Script" path="res://Scripts/auto_resize.gd" id="5_qjbi6"]
 [ext_resource type="Texture2D" uid="uid://wox2pvj7kwdl" path="res://Assets/Textures/new_screen_small.png" id="7_a123b"]
 [ext_resource type="Script" path="res://Scripts/read_talk_button.gd" id="8_5mh05"]
 
@@ -17,6 +17,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_r7puc"]
+resource_local_to_scene = true
 font = ExtResource("4_b5exu")
 font_size = 24
 font_color = Color(0.054902, 0.054902, 0.160784, 0.952941)

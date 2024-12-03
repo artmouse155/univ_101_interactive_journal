@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3]
 
-[ext_resource type="Theme" path="res://Resources/main_theme.tres" id="1_yokl3"]
+[ext_resource type="Theme" uid="uid://b7d2qhh1gaf71" path="res://Resources/main_theme.tres" id="1_yokl3"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="2_4fv7h"]
-[ext_resource type="PackedScene" path="res://Scenes/journal_card.tscn" id="3_d75hp"]
-[ext_resource type="PackedScene" path="res://Scenes/radio_button.tscn" id="4_vceer"]
-[ext_resource type="Texture2D" path="res://Assets/Textures/desk.jpg" id="5_481ie"]
-[ext_resource type="Shader" path="res://Scenes/frosted_glass.gdshader" id="6_ikssc"]
+[ext_resource type="PackedScene" uid="uid://cgtega16abrnc" path="res://Scenes/journal_card.tscn" id="3_d75hp"]
+[ext_resource type="PackedScene" uid="uid://chrifsr3kufyx" path="res://Scenes/radio_button.tscn" id="4_vceer"]
+[ext_resource type="Texture2D" uid="uid://1barsv1f8pbi" path="res://Assets/Textures/desk.jpg" id="5_481ie"]
+[ext_resource type="Shader" path="res://Assets/frosted_glass.gdshader" id="6_ikssc"]
 [ext_resource type="Script" path="res://Scripts/blur.gd" id="7_b6pji"]
-[ext_resource type="FontFile" path="res://Assets/Fonts/IbarraRealNova-Bold.ttf" id="8_el82m"]
+[ext_resource type="FontFile" uid="uid://ohhsjmpc3nx8" path="res://Assets/Fonts/IbarraRealNova-Bold.ttf" id="8_el82m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oju65"]
 bg_color = Color(0.72, 0.52656, 0.3456, 1)
