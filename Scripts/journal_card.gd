@@ -42,13 +42,13 @@ func setup(entry: Entry, _original_position: Vector2, _page_number):
 	TitleLabel.text = "[font_size=24][b]" + entry.talk_name + "[/b][/font_size]"
 	TitleLabel.owner = owner
 	SpeakerAndDateLabel.text = entry.speaker_name + " | " + entry.get_date_as_string()
-	SpeakerImage.texture = load(entry.img_path)
+	SpeakerImage.texture = entry.img
 	QuoteLabel.set_text_with_size("\"" + entry.quote + "\"", entry.quote_font_size)
 	ThoughtsLabel.text = entry.thoughts
 	QuestionsLabel.text = entry.questions
 	ReadTalkButton.hyperlink = entry.hyperlink
 	
-	TileSpeakerImage.texture = load(entry.img_path)
+	TileSpeakerImage.texture = entry.img
 	TileTitleLabel.text = "[font_size=24][b]" + entry.talk_name + "[/b][/font_size]"
 	TileSpeakerAndDateLabel.text = entry.speaker_name + " | " + entry.get_date_as_string()
 
